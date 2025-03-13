@@ -1,0 +1,82 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.main-container {
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.game-container {
+  flex: 1;
+  max-width: 400px;
+}
+
+#gameCanvas {
+  border: 3px solid #333;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.control-panel {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.preview-box {
+  background: #f8f8f8;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.score-board {
+  font-size: 20px;
+  padding: 10px;
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#highScores {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+#highScores li {
+  padding: 8px;
+  margin: 5px 0;
+  background: #f8f8f8;
+  border-radius: 4px;
+}

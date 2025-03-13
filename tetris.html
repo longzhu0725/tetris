@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>俄罗斯方块</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main-container">
+    <div class="game-container">
+      <canvas id="gameCanvas" width="400" height="800"></canvas>
+    </div>
+    
+    <div class="control-panel">
+      <div class="preview-box">
+        <h4>下一个方块</h4>
+        <canvas id="previewCanvas" width="100" height="100"></canvas>
+      </div>
+      
+      <div class="score-board">
+        当前积分: <span id="score">0</span>
+      </div>
+      
+      <div class="controls">
+        <button id="startBtn">开始游戏</button>
+        <button id="pauseBtn">暂停/继续</button>
+        <button id="resetBtn">重置游戏</button>
+      </div>
+      
+      <div class="leaderboard">
+        <h4>排行榜</h4>
+        <ul id="highScores"></ul>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
