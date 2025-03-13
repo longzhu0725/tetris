@@ -206,6 +206,13 @@ function gameUpdate() {
     drawPreview();
     if (collision(0, 0, currentPiece.shape)) {
       clearInterval(gameLoop);
+      
+      // 保存当前分数
+      let scores = JSON.parse(localStorage.getItem('tetrisScores') || '[]');
+      scores.push(score);
+      scores = [...new Set(scores)].sort((a,b) => b-a).slice(0,5);
+      localStorage.setItem('tetrisScores', JSON.stringify(scores));
+      
       alert('游戏结束！');
       updateLeaderboard();
       return;
@@ -221,19 +228,11 @@ function updateScore(points) {
 }
 
 function updateLeaderboard() {
-  console.log('正在更新排行榜...');
-  if(!localStorage.getItem('tetrisScores')) {
-    localStorage.setItem('tetrisScores', JSON.stringify([1000, 800, 600, 400, 200]));
-  }
-  let scores = JSON.parse(localStorage.getItem('tetrisScores'));
-  console.log('读取到的分数：', scores);
-  
+  let scores = JSON.parse(localStorage.getItem('tetrisScores') || '[]');
   const list = document.getElementById('highScores');
-  if (!list) {
-    console.error('未找到highScores列表元素');
-    return;
-  }
   list.innerHTML = scores
-    .map((score, index) => `<li>第${index + 1}名: ${score}分</li>`)
+    .sort((a,b) => b - a)
+    .slice(0,5)
+    .map((score,index) => `<li>第${index+1}名: ${score}分</li>`)
     .join('');
 }
